@@ -137,12 +137,12 @@ export default class MultiSlider extends React.Component {
 
     let nextState = {};
     if (nextProps.min !== this.props.min ||
-        nextProps.max !== this.props.max ||
-        nextProps.values[0] !== this.state.valueOne ||
-        nextProps.sliderLength !== this.props.sliderLength ||
-        nextProps.values[1] !== this.state.valueTwo ||
-        (nextProps.sliderLength !== this.props.sliderLength &&
-            nextProps.values[1])
+      nextProps.max !== this.props.max ||
+      nextProps.values[0] !== this.state.valueOne ||
+      nextProps.sliderLength !== this.props.sliderLength ||
+      nextProps.values[1] !== this.state.valueTwo ||
+      (nextProps.sliderLength !== this.props.sliderLength &&
+        nextProps.values[1])
     ) {
       this.optionsArray = this.props.optionsArray ||
         createArray(nextProps.min, nextProps.max, nextProps.step);
@@ -346,7 +346,7 @@ export default class MultiSlider extends React.Component {
       borderRadius: borderRadius || 0,
     };
 
-    const markerContainerOne = { top: markerOffsetY - 24, left : trackOneLength + markerOffsetX - 24 }
+    const markerContainerOne = { top: markerOffsetY - 24, left: trackOneLength + markerOffsetX - 24 }
 
     const markerContainerTwo = { top: markerOffsetY - 24, right: trackThreeLength + markerOffsetX - 24 };
 
@@ -370,14 +370,14 @@ export default class MultiSlider extends React.Component {
             ]}
           />
           {twoMarkers &&
-          <View
-            style={[
-              styles.track,
-              this.props.trackStyle,
-              trackThreeStyle,
-              { width: trackThreeLength },
-            ]}
-          />}
+            <View
+              style={[
+                styles.track,
+                this.props.trackStyle,
+                trackThreeStyle,
+                { width: trackThreeLength },
+              ]}
+            />}
           <View
             style={[
               styles.markerContainer,
@@ -394,8 +394,8 @@ export default class MultiSlider extends React.Component {
               <Marker
                 enabled={this.props.enabledOne}
                 pressed={this.state.onePressed}
-                markerStyle={[styles.marker, this.props.markerStyle]}
-                pressedMarkerStyle={this.props.pressedMarkerStyle}
+                markerStyle={[styles.marker, this.props.markerStyle, { marginLeft: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
+                pressedMarkerStyle={[this.props.pressedMarkerStyle, { marginLeft: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
                 currentValue={this.state.valueOne}
                 valuePrefix={this.props.valuePrefix}
                 valueSuffix={this.props.valueSuffix}
@@ -403,24 +403,24 @@ export default class MultiSlider extends React.Component {
             </View>
           </View>
           {twoMarkers &&
-          positionOne !== this.props.sliderLength &&
-          <View style={[styles.markerContainer, markerContainerTwo, this.props.markerContainerStyle]}>
-            <View
-              style={[styles.touch, touchStyle]}
-              ref={component => this._markerTwo = component}
-              {...this._panResponderTwo.panHandlers}
-            >
-              <Marker
-                pressed={this.state.twoPressed}
-                markerStyle={this.props.markerStyle}
-                pressedMarkerStyle={this.props.pressedMarkerStyle}
-                currentValue={this.state.valueTwo}
-                enabled={this.props.enabledTwo}
-                valuePrefix={this.props.valuePrefix}
-                valueSuffix={this.props.valueSuffix}
-              />
-            </View>
-          </View>}
+            positionOne !== this.props.sliderLength &&
+            <View style={[styles.markerContainer, markerContainerTwo, this.props.markerContainerStyle]}>
+              <View
+                style={[styles.touch, touchStyle]}
+                ref={component => this._markerTwo = component}
+                {...this._panResponderTwo.panHandlers}
+              >
+                <Marker
+                  pressed={this.state.twoPressed}
+                  markerStyle={[this.props.markerStyle, { marginRight: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
+                  pressedMarkerStyle={[this.props.pressedMarkerStyle, { marginRight: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
+                  currentValue={this.state.valueTwo}
+                  enabled={this.props.enabledTwo}
+                  valuePrefix={this.props.valuePrefix}
+                  valueSuffix={this.props.valueSuffix}
+                />
+              </View>
+            </View>}
         </View>
       </View>
     );
