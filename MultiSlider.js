@@ -394,8 +394,8 @@ export default class MultiSlider extends React.Component {
               <Marker
                 enabled={this.props.enabledOne}
                 pressed={this.state.onePressed}
-                markerStyle={[styles.marker, this.props.markerStyle, { marginRight: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
-                pressedMarkerStyle={[this.props.pressedMarkerStyle, { marginRight: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
+                markerStyle={[styles.marker, this.props.markerStyle, { marginRight: this.props.markerStyle.height ? this.props.markerStyle.height + 2 : 8 }]}
+                pressedMarkerStyle={[this.props.pressedMarkerStyle, { marginRight: this.props.markerStyle.height ? this.props.markerStyle.height + 2 : 8 }]}
                 currentValue={this.state.valueOne}
                 valuePrefix={this.props.valuePrefix}
                 valueSuffix={this.props.valueSuffix}
@@ -412,8 +412,8 @@ export default class MultiSlider extends React.Component {
               >
                 <Marker
                   pressed={this.state.twoPressed}
-                  markerStyle={[this.props.markerStyle, { marginLeft: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
-                  pressedMarkerStyle={[this.props.pressedMarkerStyle, { marginLeft: this.props.markerStyle.height ? this.props.markerStyle.height + 5 : 8 }]}
+                  markerStyle={[this.props.markerStyle, { marginLeft: this.props.markerStyle.height ? this.props.markerStyle.height + 2 : 8 }]}
+                  pressedMarkerStyle={[this.props.pressedMarkerStyle, { marginLeft: this.props.markerStyle.height ? this.props.markerStyle.height + 2 : 8 }]}
                   currentValue={this.state.valueTwo}
                   enabled={this.props.enabledTwo}
                   valuePrefix={this.props.valuePrefix}
